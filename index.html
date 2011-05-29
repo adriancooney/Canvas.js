@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Playing</title>
+	<script type="text/javascript" src="../../Javascript/Canvas.js/canvas.js"></script>
+	<script type="text/javascript">
+	//When the DOM is loaded
+	document.addEventListener("DOMContentLoaded", function() {
+		//Create our layer pallette, I think 4 layers will do
+		createPalette(4);
+		
+		//Set the background of the bottom layer
+		//Cream? I think so.
+		setBackground("#fff799");
+		
+		//Select the third layer
+		//Layers start at 0 (like everything else in JS)
+		//Lets draw a circle
+		selectLayer(2).circle(
+			//thisLayer is the global for the current layer
+			(thisLayer.width()/2), //X position
+			(thisLayer.height()/2),//Y position
+			40, //Radius
+			"#8c6239" //fillStyle
+		);
+		
+		//Timeline testing
+		timeline({
+			10: function(time) {
+				console.log("Current Time in the 10%: " + time);
+			},
+			
+			70: function(time) {
+				console.log("Current Time in the 70%: " + time);
+			},
+			
+			100: function(time) {
+				console.log("Current Time in the 100%: " + time);
+			}
+		}, 10000); //Do it for 10 seconds
+	}, false);
+	</script>
+</head>
+
+<body>
+</body>
+</html>
